@@ -6,7 +6,8 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = Dash(__name__)  # Back to simplest form
+app = Dash(__name__, url_base_pathname="/dashtest/")  # Back to simplest form
+
 server = app.server
 
 @server.before_request

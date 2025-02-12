@@ -5,7 +5,6 @@ WORKDIR /app
 
 # Set Python to run in unbuffered mode
 ENV PYTHONUNBUFFERED=1
-ENV SCRIPT_NAME=/dashtest
 
 # Copy requirements and install dependencies
 COPY requirements.txt .
@@ -18,7 +17,7 @@ COPY app.py .
 EXPOSE 8080
 
 # Command to run the application
-CMD exec gunicorn --bind :$PORT \
+CMD exec gunicorn --bind :8080 \
     --workers 1 \
     --threads 8 \
     --timeout 0 \
